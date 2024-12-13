@@ -265,7 +265,8 @@ console.log(isThisAnEmail("mariorossi@gmail"));
 console.log("ESERCIZIO 7");
 function whatDayIsIt() {
     const today = new Date();
-    const weekDays = ["Lunedì", "Martedì", "Mercoledì"]
+    const weekDays = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
+    return weekDays[today.getDay() - 1];
 };
 console.log("Oggi è il giorno: " + whatDayIsIt());
 
@@ -305,7 +306,7 @@ function howManyDays(date) {
     const difference = today - new Date(date);
     const daysDif = Math.floor(difference / (1000 * 3600 * 24));
     return daysDif;
-}
+};
 console.log("La differenza di giorni è: " + howManyDays("2024-12-03"));
 
 /* ESERCIZIO 10
@@ -319,7 +320,7 @@ function isTodayMyBirthday() {
     } else {
         return false;
     }
-}
+};
 console.log(isTodayMyBirthday());
 
 // Arrays & Oggetti
@@ -336,13 +337,13 @@ const obj = {
     surname: "Rossi",
     city: "Roma",
     age: "34",
-}
+};
 function deleteProp(obj, str) {
     if (obj.hasOwnProperty(str)) {
         delete obj[str];
     }
     return obj;
-}
+};
 console.log(deleteProp(obj, "name"));
 
 /* ESERCIZIO 12
@@ -367,7 +368,7 @@ console.log(newestMovie(movies));
 console.log("ESERCIZIO 13");
 function countMovies() {
     return movies.length;
-}
+};
 const result = countMovies();
 console.log("Il numero di film è: " + result);
 
@@ -381,7 +382,7 @@ function onlyTheYears(array) {
         yearsList.push(ele.Year);
     });
     return yearsList;
-}
+};
 let result2 = onlyTheYears(movies);
 console.log(result2);
 
@@ -391,7 +392,7 @@ console.log(result2);
 console.log("ESERCIZIO 15");
 function onlyInLastMillennium(array) {
     let oldMovies = [];
-    const obj2 = { Year: 2000 };
+    const obj2 = {Year: 2000};
     array.forEach(ele => {
         const currentYear = parseInt(ele.Year);
         if (currentYear < obj2.Year) {
@@ -399,7 +400,7 @@ function onlyInLastMillennium(array) {
         }
     })
     return oldMovies;
-}
+};
 let result3 = onlyInLastMillennium(movies);
 console.log(result3);
 
@@ -407,8 +408,7 @@ console.log(result3);
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 16");
-const sumAllTheYears = movies.reduce((acc, movies) => acc + parseInt(movies.Year), 0)
-
+const sumAllTheYears = movies.reduce((acc, movies) => acc + parseInt(movies.Year), 0);
 console.log("Il risultato della somma è: " + sumAllTheYears);
 
 /* ESERCIZIO 17
@@ -423,8 +423,8 @@ function searchByTitle(str) {
             mov.push(element);
         }
     })
-    return mov
-}
+    return mov;
+};
 let result4 = searchByTitle("Avengers");
 console.log(result4);
 
@@ -465,23 +465,34 @@ console.log(removeIndex(1));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-const container = () => {document.getElementById("container");}
+console.log("ESERCIZIO 20");
+function id() {
+    const container = document.getElementById("container");
+    return container
+};
+console.log(id());
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-const tdSelector = () => { document.querySelectorAll("td"); }
+console.log("ESERCIZIO 21");
+function tdselect() {
+    const tdSelector = document.querySelectorAll("td");
+    return tdSelector;
+};
+console.log(tdselect());
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+console.log("ESERCIZIO 22");
 const tdPrint = () => {
     let allTd = document.querySelectorAll("td");
     allTd.forEach(ele => {
-        console.log(ele);
+        console.log(ele.textContent);
     });
-}
-tdPrint()
+};
+tdPrint();
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
@@ -491,7 +502,7 @@ const backColor = () => {
     allLinks.forEach(ele => {
         ele.style.backgroundColor = "red";
     });
-}
+};
 backColor();
 
 /* ESERCIZIO 24
@@ -501,7 +512,8 @@ function addElement() {
     let myList = document.getElementById("myList");
     let li = document.createElement("li");
     myList.appendChild(li);
-}
+};
+addElement();
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
@@ -510,7 +522,9 @@ function emptyList() {
     let myList = document.getElementById("myList");
     let empty = myList.splice(0);
     return empty;
-}
+};
+
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
@@ -519,7 +533,9 @@ function addClass() {
     trList.forEach(ele => {
         ele.classList.add("test");
     });
-}
+};
+addClass();
+
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
